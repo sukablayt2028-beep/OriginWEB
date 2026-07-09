@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OriginWEB Setup</title>
+    <link rel="stylesheet" href="/OriginWEB/css/setupScreen.css" />
+</head>
+<body>
+    <div class="setupScreen">
+        <div class="setupContainer">
+            <div class="setupHeader">
+                <img src="/OriginWEB/originData/OriginOS6Logo.png" alt="OriginOS Logo" class="setupLogo" />
+                <h1 class="setupTitle">Welcome to OriginWEB</h1>
+                <p class="setupSubtitle">Let's get your device ready</p>
+            </div>
+
+            <div class="setupContent">
+                <!-- Step 1: Welcome -->
+                <div class="setupStep active" data-step="1">
+                    <h2>Welcome!</h2>
+                    <p>This is your first time using OriginWEB. Let's set up your device to get the best experience.</p>
+                    <button class="setupButton primary" onclick="nextStep()">Get Started</button>
+                </div>
+
+                <!-- Step 2: Device Name -->
+                <div class="setupStep" data-step="2">
+                    <h2>Name Your Device</h2>
+                    <p>Give your device a unique name</p>
+                    <input type="text" class="setupInput" id="deviceNameInput" placeholder="My OriginOS Device" maxlength="30" />
+                    <div class="setupButtonGroup">
+                        <button class="setupButton secondary" onclick="prevStep()">Back</button>
+                        <button class="setupButton primary" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Preferences -->
+                <div class="setupStep" data-step="3">
+                    <h2>Customize Your Experience</h2>
+                    <p>Choose your preferences</p>
+                    
+                    <div class="preferencesGroup">
+                        <label class="preferenceItem">
+                            <input type="checkbox" class="setupCheckbox" id="enableAnimations" checked />
+                            <span class="preferenceText">
+                                <span class="preferenceName">Enable Animations</span>
+                                <span class="preferenceDescription">Smooth transitions and effects</span>
+                            </span>
+                        </label>
+
+                        <label class="preferenceItem">
+                            <input type="checkbox" class="setupCheckbox" id="enableBlur" checked />
+                            <span class="preferenceText">
+                                <span class="preferenceName">Blur Effects</span>
+                                <span class="preferenceDescription">Glass morphism and blur effects</span>
+                            </span>
+                        </label>
+
+                        <label class="preferenceItem">
+                            <input type="checkbox" class="setupCheckbox" id="enableDockBar" checked />
+                            <span class="preferenceText">
+                                <span class="preferenceName">Show Dock Bar</span>
+                                <span class="preferenceDescription">Quick access to favorite apps</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="setupButtonGroup">
+                        <button class="setupButton secondary" onclick="prevStep()">Back</button>
+                        <button class="setupButton primary" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Theme Selection -->
+                <div class="setupStep" data-step="4">
+                    <h2>Choose Your Theme</h2>
+                    <p>Select your preferred unlock animation</p>
+                    
+                    <div class="themeGrid">
+                        <button class="themeOption active" data-theme="OriginOS" onclick="selectTheme(this)">
+                            <span class="themeName">OriginOS</span>
+                        </button>
+                        <button class="themeOption" data-theme="ColorOS" onclick="selectTheme(this)">
+                            <span class="themeName">ColorOS</span>
+                        </button>
+                        <button class="themeOption" data-theme="HyperOS" onclick="selectTheme(this)">
+                            <span class="themeName">HyperOS</span>
+                        </button>
+                        <button class="themeOption" data-theme="HarmonyOS" onclick="selectTheme(this)">
+                            <span class="themeName">HarmonyOS</span>
+                        </button>
+                    </div>
+
+                    <div class="setupButtonGroup">
+                        <button class="setupButton secondary" onclick="prevStep()">Back</button>
+                        <button class="setupButton primary" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Complete -->
+                <div class="setupStep" data-step="5">
+                    <div class="completeIcon">✓</div>
+                    <h2>All Set!</h2>
+                    <p>Your OriginWEB device is ready to use</p>
+                    <div class="setupSummary">
+                        <p><strong>Device Name:</strong> <span id="summaryDeviceName">My OriginOS Device</span></p>
+                        <p><strong>Theme:</strong> <span id="summaryTheme">OriginOS</span></p>
+                    </div>
+                    <button class="setupButton primary" onclick="completeSetup()">Start Using OriginWEB</button>
+                </div>
+            </div>
+
+            <div class="setupProgress">
+                <div class="progressBar" id="progressBar"></div>
+                <p class="progressText"><span id="currentStep">1</span> / 5</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/OriginWEB/otherJS/setupScreen.js"></script>
+</body>
+</html>
