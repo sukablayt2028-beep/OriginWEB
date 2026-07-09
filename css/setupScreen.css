@@ -1,0 +1,355 @@
+:root {
+  --setup-primary: #007aff;
+  --setup-secondary: #34c759;
+  --setup-bg: #000;
+  --setup-card-bg: #1a1a1a;
+  --setup-text: #ffffff;
+  --setup-text-secondary: #888888;
+  --setup-border: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--setup-bg);
+  color: var(--setup-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setupScreen {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.setupContainer {
+  width: 100%;
+  max-width: 500px;
+  background: var(--setup-card-bg);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--setup-border);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.setupHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.setupLogo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.setupTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #007aff 0%, #34c759 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.setupSubtitle {
+  font-size: 14px;
+  color: var(--setup-text-secondary);
+}
+
+.setupContent {
+  min-height: 250px;
+  margin-bottom: 30px;
+}
+
+.setupStep {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.setupStep.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.setupStep h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.setupStep p {
+  color: var(--setup-text-secondary);
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.setupInput {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border: 1px solid var(--setup-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--setup-text);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.setupInput:focus {
+  outline: none;
+  border-color: var(--setup-primary);
+  background: rgba(0, 122, 255, 0.1);
+}
+
+.preferencesGroup {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preferenceItem {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--setup-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.preferenceItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--setup-primary);
+}
+
+.setupCheckbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: var(--setup-primary);
+}
+
+.preferenceText {
+  display: flex;
+  flex-direction: column;
+}
+
+.preferenceName {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.preferenceDescription {
+  font-size: 12px;
+  color: var(--setup-text-secondary);
+  margin-top: 2px;
+}
+
+.themeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.themeOption {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--setup-border);
+  border-radius: 10px;
+  color: var(--setup-text);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.themeOption:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--setup-primary);
+}
+
+.themeOption.active {
+  background: var(--setup-primary);
+  border-color: var(--setup-primary);
+  color: white;
+}
+
+.completeIcon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: checkmark 0.6s ease-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+.setupSummary {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.setupSummary p {
+  margin: 8px 0;
+  color: var(--setup-text);
+}
+
+.setupSummary strong {
+  color: var(--setup-primary);
+}
+
+.setupButtonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.setupButton {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.setupButton.primary {
+  background: linear-gradient(135deg, var(--setup-primary) 0%, #0056d6 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.setupButton.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+}
+
+.setupButton.primary:active {
+  transform: translateY(0);
+}
+
+.setupButton.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--setup-text);
+  border: 1px solid var(--setup-border);
+}
+
+.setupButton.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--setup-primary);
+}
+
+.setupProgress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBar::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, var(--setup-primary) 0%, var(--setup-secondary) 100%);
+  border-radius: 2px;
+  width: 20%;
+  transition: width 0.4s ease;
+}
+
+.progressText {
+  font-size: 12px;
+  color: var(--setup-text-secondary);
+}
+
+@media (max-width: 480px) {
+  .setupContainer {
+    padding: 30px 20px;
+  }
+
+  .setupTitle {
+    font-size: 24px;
+  }
+
+  .setupStep h2 {
+    font-size: 20px;
+  }
+
+  .themeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .setupButtonGroup {
+    flex-direction: column;
+  }
+}
